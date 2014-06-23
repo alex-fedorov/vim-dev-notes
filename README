@@ -8,7 +8,7 @@ Run this to clone it as a submodule (or use your preferred way to install vim pl
 
 ```
 cd .vim
-git submodule add https://github.com/alex-fedorov/vim-dev-notes.vim bundle/vim-dev-notes
+git submodule add https://github.com/alex-fedorov/vim-dev-notes.git bundle/vim-dev-notes
 ```
 
 To open a dev note for specific line of code type in normal mode `:Note`.
@@ -16,12 +16,23 @@ To open a dev note for specific line of code type in normal mode `:Note`.
 You may want to map it to some key in your vimrc, for example:
 
 ```
-map <F1> :Note<cr>
+nmap <F1> :Note<cr>
 ```
 
 or to be more precise (if you have already `Note` command from other plugin(s)):
 
 ```
-map <F5> :call dev_notes#note()<cr>
+nmap <F5> :call dev_notes#note()<cr>
 ```
+
+## Changelog
+
+0.1.1
+
+- Fixed typos in readme
+- Added changelog to readme
+
+0.1.0
+
+- Initial somehow working plugin
 
