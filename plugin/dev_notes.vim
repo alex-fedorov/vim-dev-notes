@@ -23,3 +23,29 @@ endfu
 
 com! Note call dev_notes#toggle_note()
 
+fu! dev_notes#summary()
+  call system('echo "" > .dev_notes/.summary')
+  exe ':e! .dev_notes_summary.md'
+
+  for file in split(system('find .dev_notes -type f -size +1c'), "\n")
+    let info = matchlist(file, '^\.dev_notes\/\(.*\)\/L\(\d\+\)\.md$')
+    let path = info[1]
+    let line = info[2]
+
+    let start_line = max([1, line - 4])
+    let end_line = start_line + 10
+
+    let header = path . ':L' . line . ':'
+    let text = system('cat ' . file)
+    let code = system("sed -n '" . start_line . ',' . end_line . "p' " . path)
+
+    let content = "\n`" . header . "`\n\n```\n" . code . "\n```\n\n" . text . "\n\n"
+
+    call append(line('$'), split(content, "\n"))
+  endfor
+
+  exe ':w!'
+endfu
+
+com! Notes call dev_notes#summary()
+

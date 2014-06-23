@@ -11,6 +11,8 @@ cd .vim
 git submodule add https://github.com/alex-fedorov/vim-dev-notes.git bundle/vim-dev-notes
 ```
 
+## Usage
+
 To open a dev note for specific line of code type in normal mode `:Note`.
 
 You may want to map it to some key in your vimrc, for example:
@@ -27,7 +29,15 @@ nmap <F5> :call dev_notes#toggle_note()<cr>
 
 When used inside another note, it will save it and close it (just like `:wq`).
 
+To open summary in one file with snippets of relevant code with file path and line number and the note itself: `:Notes` or `:call dev_notes#summary()`
+
+You are free to assign it to some key, but it is not required (because you'll generate summary not so often).
+
 ## Changelog
+
+0.3.0
+
+- Added notes summary feature
 
 0.2.0
 
