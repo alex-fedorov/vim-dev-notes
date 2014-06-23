@@ -22,10 +22,16 @@ nmap <F1> :Note<cr>
 or to be more precise (if you have already `Note` command from other plugin(s)):
 
 ```
-nmap <F5> :call dev_notes#note()<cr>
+nmap <F5> :call dev_notes#toggle_note()<cr>
 ```
 
+When used inside another note, it will save it and close it (just like `:wq`).
+
 ## Changelog
+
+0.2.0
+
+- Added note toggle feature
 
 0.1.1
 
