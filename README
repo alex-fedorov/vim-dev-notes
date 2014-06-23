@@ -2,3 +2,26 @@
 
 Allows you to create notes on lines of code
 
+## Setup
+
+Run this to clone it as a submodule (or use your preferred way to install vim plugins):
+
+```
+cd .vim
+git submodule add https://github.com/alex-fedorov/vim-dev-notes.vim bundle/vim-dev-notes
+```
+
+To open a dev note for specific line of code type in normal mode `:Note`.
+
+You may want to map it to some key in your vimrc, for example:
+
+```
+map <F1> :Note<cr>
+```
+
+or to be more precise (if you have already `Note` command from other plugin(s)):
+
+```
+map <F5> :call dev_notes#note()<cr>
+```
+
