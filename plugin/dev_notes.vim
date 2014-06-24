@@ -40,13 +40,23 @@ fu! dev_notes#summary()
     let text = system('cat ' . file)
     let code = system("sed -n '" . start_line . ',' . end_line . "p' " . path)
 
-    let content = "\n`" . header . "`\n\n```\n" . code . "\n```\n\n" . text . "\n\n"
+    let content = "\n`" . header . "`\n\n```\n" . code . "\n```\n------\n" . text . "\n\n"
 
     call append(line('$'), split(content, "\n"))
   endfor
 
   exe ':w!'
+
+  call dev_notes#highlight_summary()
 endfu
 
 com! Notes call dev_notes#summary()
+
+fu! dev_notes#highlight_summary()
+  exe ':highlight dev_notes_path_and_line ctermbg=darkgreen guibg=darkgreen'
+  exe ':highlight dev_notes_divider ctermbg=lightgray guibg=lightgray'
+
+  call matchadd('dev_notes_path_and_line', '^.\+:L\d\+:`$')
+  call matchadd('dev_notes_divider', '^------$')
+endfu
 
