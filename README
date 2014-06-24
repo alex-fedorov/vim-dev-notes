@@ -35,6 +35,10 @@ You are free to assign it to some key, but it is not required (because you'll ge
 
 ## Changelog
 
+0.3.1
+
+- Fixed issue with not cleared old summary reports
+
 0.3.0
 
 - Added notes summary feature

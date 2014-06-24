@@ -24,8 +24,9 @@ endfu
 com! Note call dev_notes#toggle_note()
 
 fu! dev_notes#summary()
-  call system('echo "" > .dev_notes/.summary')
-  exe ':e! .dev_notes_summary.md'
+  let summary_path = '.dev_notes_summary.md'
+  call system('echo "" > ' . summary_path)
+  exe ':e! ' . summary_path
 
   for file in split(system('find .dev_notes -type f -size +1c'), "\n")
     let info = matchlist(file, '^\.dev_notes\/\(.*\)\/L\(\d\+\)\.md$')
